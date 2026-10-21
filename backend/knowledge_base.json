@@ -1,0 +1,441 @@
+{
+  "tomato_early_blight": {
+    "id": "tomato_early_blight",
+    "plant": "Tomato",
+    "crop_category": "Vegetables",
+    "plant_scientific": "Solanum lycopersicum",
+    "disease": "Early Blight",
+    "pathogen": "Alternaria solani (Fungus)",
+    "description": "Characterized by dark brown to black spots with concentric rings resembling a target board, surrounded by yellow chlorotic halos, typically emerging on older lower foliage first.",
+    "default_severity": "Moderate",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Sanitation & Physical Removal",
+        "action": "Prune and dispose of all lower leaves exhibiting concentric spots. Never compost infected leaves; burn or seal them in disposal bags to prevent spore dissemination.",
+        "icon": "scissors"
+      },
+      {
+        "step": 2,
+        "title": "Canopy & Moisture Management",
+        "action": "Stake plants to lift foliage off soil. Water strictly at the base using drip irrigation or soaker hoses; avoid overhead watering and ensure minimum 60cm spacing for airflow.",
+        "icon": "droplet"
+      },
+      {
+        "step": 3,
+        "title": "Fungicidal & Agronomic Control",
+        "action": "Apply organic copper-based fungicide (e.g. Copper Hydroxide or Bordeaux mixture 1%) or bio-fungicide (Bacillus subtilis) at first symptom onset. Repeat every 7-10 days after rainfall.",
+        "safety_note": "Wear nitrile gloves, eye protection goggles, and an N95/FFP2 respirator when mixing and applying copper sprays. Adhere strictly to the 24-hour pre-harvest interval (PHI).",
+        "local_guidance": "Consult your local agricultural extension service (Krishi Bhavan) for regional pathogen resistance data and locally approved bio-control formulations.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "തക്കാളിയിലെ ആദ്യകാല കരിഞ്ഞുണങ്ങൽ (Early Blight)",
+        "plant": "തക്കാളി",
+        "treatment_steps": [
+          { "step": 1, "title": "രോഗബാധയുള്ള ഇലകൾ നീക്കം ചെയ്യുക", "action": "താഴത്തെ രോഗം ബാധിച്ച ഇലകൾ മുറിച്ചുമാറ്റി നശിപ്പിക്കുക. ഇവ വളക്കുഴിയിൽ ഇടരുത്." },
+          { "step": 2, "title": "വായുസഞ്ചാരവും നനവും ക്രമീകരിക്കുക", "action": "ചെടികൾ താങ്ങ് നൽകി നിർത്തുക. ഇലകളിൽ വെള്ളം തളിക്കാതെ തടത്തിൽ മാത്രം നനയ്ക്കുക." },
+          { "step": 3, "title": "കുമിൾനാശിനി പ്രയോഗം", "action": "1% ബോർഡോ മിശ്രിതം അല്ലെങ്കിൽ ചെമ്പ് അടങ്ങിയ കുമിൾനാശിനി തളിക്കുക.", "safety_note": "കുമിൾനാശിനി തളിക്കുമ്പോൾ കയ്യുറകളും മാസ്കും ധരിക്കുക.", "local_guidance": "കൂടുതൽ വിവരങ്ങൾക്ക് അടുത്തുള്ള കൃഷിഭവനുമായി ബന്ധപ്പെടുക." }
+        ]
+      }
+    }
+  },
+  "tomato_late_blight": {
+    "id": "tomato_late_blight",
+    "plant": "Tomato",
+    "crop_category": "Vegetables",
+    "plant_scientific": "Solanum lycopersicum",
+    "disease": "Late Blight",
+    "pathogen": "Phytophthora infestans (Oomycete)",
+    "description": "Aggressive, fast-spreading water-soaked dark gray/brown lesions with pale margins. Under humid conditions, white fluffy mold forms on leaf undersides.",
+    "default_severity": "Severe",
+    "treatment_steps": [
+      { "step": 1, "title": "Urgent Leaf Quarantine", "action": "Immediately remove and destroy heavily infected leaves and stems. Rogue entire plant if infection exceeds 50% to protect nearby crops." },
+      { "step": 2, "title": "Microclimate & Humidity Control", "action": "Increase spacing to 75cm, stop morning overhead irrigation, and prune suckers to promote rapid foliar drying." },
+      { "step": 3, "title": "Protective Fungicides", "action": "Apply preventive copper octanoate or curative cymoxanil/dimethomorph within 24 hours of cool wet weather.", "safety_note": "Wear chemical-resistant gloves and respirator. Observe waiting periods.", "local_guidance": "Report outbreaks to your local agricultural extension center immediately." }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "തക്കാളിയിലെ വൈകിയുള്ള കരിഞ്ഞുണങ്ങൽ (Late Blight)",
+        "plant": "തക്കാളി",
+        "treatment_steps": [
+          { "step": 1, "title": "രോഗബാധയേറ്റ ഭാഗങ്ങൾ ഉടനടി നശിപ്പിക്കുക", "action": "രോഗം ബാധിച്ച ഭാഗങ്ങൾ മുറിച്ചു നശിപ്പിക്കുക." },
+          { "step": 2, "title": "ഈർപ്പം കുറയ്ക്കുക", "action": "ചെടികൾക്കിടയിൽ നല്ല വായുസഞ്ചാരം ഉറപ്പാക്കുക." },
+          { "step": 3, "title": "ഫംഗിസൈഡ് പ്രയോഗം", "action": "ശുപാർശ ചെയ്ത കുമിൾനാശിനികൾ കൃഷി ഓഫീസറുടെ നിർദ്ദേശപ്രകാരം തളിക്കുക." }
+        ]
+      }
+    }
+  },
+  "tomato_septoria_leaf_spot": {
+    "id": "tomato_septoria_leaf_spot",
+    "plant": "Tomato",
+    "crop_category": "Vegetables",
+    "plant_scientific": "Solanum lycopersicum",
+    "disease": "Septoria Leaf Spot",
+    "pathogen": "Septoria lycopersici (Fungus)",
+    "description": "Numerous small circular spots (1.5-3mm) with dark brown margins and sunken grayish-white centers dotted with tiny black specks.",
+    "default_severity": "Mild",
+    "treatment_steps": [
+      { "step": 1, "title": "Bottom Leaf Deleafing", "action": "Strip lower 30cm of leaves to eliminate soil-borne splash transmission." },
+      { "step": 2, "title": "Soil Mulching", "action": "Apply a 6-8cm layer of straw or organic mulch around base to prevent rain splash." },
+      { "step": 3, "title": "Targeted Fungicide", "action": "Spray copper octanoate or chlorothalonil upon detecting early symptoms.", "safety_note": "Wear PPE during spraying.", "local_guidance": "Rotate solanaceous crops on a 3-year cycle." }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "സെപ്റ്റോറിയ ഇലപ്പുള്ളി രോഗം (Septoria Leaf Spot)",
+        "plant": "തക്കാളി",
+        "treatment_steps": [
+          { "step": 1, "title": "അടിയിലെ ഇലകൾ നീക്കം ചെയ്യുക", "action": "രോഗബാധയുള്ള ഇലകൾ നശിപ്പിക്കുക." },
+          { "step": 2, "title": "പുതയിടൽ (Mulching)", "action": "വൈക്കോൽ കൊണ്ട് പുതയിടുക." },
+          { "step": 3, "title": "കുമിൾനാശിനി പ്രയോഗം", "action": "ചെമ്പ് അടങ്ങിയ കുമിൾനാശിനി സ്പ്രേ ചെയ്യുക." }
+        ]
+      }
+    }
+  },
+  "potato_early_blight": {
+    "id": "potato_early_blight",
+    "plant": "Potato",
+    "crop_category": "Tubers & Root Crops",
+    "plant_scientific": "Solanum tuberosum",
+    "disease": "Potato Early Blight",
+    "pathogen": "Alternaria solani (Fungus)",
+    "description": "Brownish-black leathery necrotic spots with characteristic concentric target rings on older potato leaves, leading to premature senescence and tuber yield loss.",
+    "default_severity": "Moderate",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Haulm Sanitation & Debris Removal",
+        "action": "Remove and burn infected potato foliage. Avoid leaving unharvested volunteer tubers or solanaceous weed hosts in the field.",
+        "icon": "scissors"
+      },
+      {
+        "step": 2,
+        "title": "Optimal Nitrogen & Irrigation Balance",
+        "action": "Ensure adequate nitrogen nutrition (nitrogen deficiency accelerates early blight susceptibility). Water in early mornings to allow leaves to dry rapidly before sunset.",
+        "icon": "droplet"
+      },
+      {
+        "step": 3,
+        "title": "Preventive Fungicidal Program",
+        "action": "Apply protectant fungicides like Mancozeb (75% WP @ 2g/L) or Copper Oxychloride at tuber bulking stage. Repeat at 10-14 day intervals.",
+        "safety_note": "Wear protective chemical gloves and face mask. Strictly observe safety withholding period before harvest.",
+        "local_guidance": "Verify local blight forecasting systems (e.g., BlightCast) through your regional agronomy station.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "ഉരുളക്കിഴങ്ങിലെ ആദ്യകാല കരിഞ്ഞുണങ്ങൽ (Early Blight)",
+        "plant": "ഉരുളക്കിഴങ്ങ്",
+        "treatment_steps": [
+          { "step": 1, "title": "ഇലകൾ നീക്കം ചെയ്യുക", "action": "രോഗബാധയുള്ള ഉരുളക്കിഴങ്ങ് ഇലകൾ മുറിച്ചു നശിപ്പിക്കുക." },
+          { "step": 2, "title": "നനവും വളപ്രയോഗവും", "action": "നൈട്രജൻ കുറവ് പരിഹരിക്കുക. ഇലകളിൽ വെള്ളം കെട്ടിക്കിടക്കാതെ രാവിലെ നനയ്ക്കുക." },
+          { "step": 3, "title": "കുമിൾനാശിനി തളിക്കുക", "action": "മാങ്കോസെബ് അല്ലെങ്കിൽ കോപ്പർ ഓക്സിക്ലോറൈഡ് കൃഷി ഓഫീസറുടെ ഉപദേശപ്രകാരം തളിക്കുക." }
+        ]
+      }
+    }
+  },
+  "potato_late_blight": {
+    "id": "potato_late_blight",
+    "plant": "Potato",
+    "crop_category": "Tubers & Root Crops",
+    "plant_scientific": "Solanum tuberosum",
+    "disease": "Potato Late Blight",
+    "pathogen": "Phytophthora infestans (Oomycete)",
+    "description": "Devastating water-soaked dark lesions spreading rapidly across potato leaves and petioles, surrounded by pale chlorotic margins, with white spore fuzz on leaf undersides in wet weather.",
+    "default_severity": "Severe",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Infected Haulm Destruction",
+        "action": "Cut and destroy infected potato haulms 2 weeks before harvesting tubers to prevent zoospores from washing down into the soil.",
+        "icon": "alert-triangle"
+      },
+      {
+        "step": 2,
+        "title": "High Soil Hilling & Drainage",
+        "action": "Build high soil ridges (hilling) around potato hills (10-15cm depth) to act as a physical buffer preventing fungal spores from contacting tubers.",
+        "icon": "shield"
+      },
+      {
+        "step": 3,
+        "title": "Curative / Systemic Oomicide Spray",
+        "action": "Apply Metalaxyl + Mancozeb (Ridomil MZ @ 2.5g/L) or Cymoxanil immediately after rain or heavy fog.",
+        "safety_note": "Use eye goggles, rubber boots, and pesticide respirator. Keep livestock away.",
+        "local_guidance": "Late blight can wipe out entire community acreage within days. Notify Krishi Bhavan immediately upon detection.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "ഉരുളക്കിഴങ്ങ് ലേറ്റ് ബ്ലൈറ്റ് (Late Blight)",
+        "plant": "ഉരുളക്കിഴങ്ങ്",
+        "treatment_steps": [
+          { "step": 1, "title": "തണ്ടുകളും ഇലകളും നശിപ്പിക്കുക", "action": "വിളവെടുപ്പിന് മുമ്പ് രോഗമുള്ള തണ്ടുകൾ മുറിച്ചു നശിപ്പിക്കുക." },
+          { "step": 2, "title": "മണ്ണ് കൂട്ടിയിടുക", "action": "കിഴങ്ങുകളിലേക്ക് രോഗം എത്താതിരിക്കാൻ മണ്ണ് നന്നായി കൂട്ടിയിടുക." },
+          { "step": 3, "title": "ഫംഗിസൈഡ് പ്രയോഗം", "action": "മെറ്റലാക്സിൽ അടങ്ങിയ മരുന്ന് ഉടൻ തളിക്കുക." }
+        ]
+      }
+    }
+  },
+  "pepper_bacterial_spot": {
+    "id": "pepper_bacterial_spot",
+    "plant": "Pepper / Bell Pepper",
+    "crop_category": "Vegetables",
+    "plant_scientific": "Capsicum annuum",
+    "disease": "Bacterial Spot",
+    "pathogen": "Xanthomonas campestris pv. vesicatoria (Bacteria)",
+    "description": "Small, water-soaked angular dark brown or black lesions on pepper leaves that turn necrotic with raised margins, often resulting in severe premature defoliation.",
+    "default_severity": "Moderate",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Defoliation & Debris Clean-Up",
+        "action": "Remove affected pepper foliage during dry afternoon hours. Clean tools with 70% alcohol between handling plants.",
+        "icon": "scissors"
+      },
+      {
+        "step": 2,
+        "title": "Drip Irrigation & Overhead Splash Avoidance",
+        "action": "Never work in pepper fields while foliage is wet from rain or dew. Transition completely to drip lines to eliminate bacteria splash.",
+        "icon": "droplet"
+      },
+      {
+        "step": 3,
+        "title": "Bactericidal Copper-Mancozeb Tank Mix",
+        "action": "Apply fixed copper bactericide mixed with Mancozeb (increases bioavailability of copper ions against resistant Xanthomonas strains).",
+        "safety_note": "Wear chemical-safe goggles and protective clothing when mixing tank sprays.",
+        "local_guidance": "Request seed batch testing reports or plant certified disease-resistant bell pepper hybrids.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "മുളകിലെ ബാക്ടീരിയൽ പുള്ളി രോഗം (Bacterial Spot)",
+        "plant": "പച്ചമുളക് / കാപ്സിക്കം",
+        "treatment_steps": [
+          { "step": 1, "title": "രോഗബാധയുള്ള ഇലകൾ നീക്കം ചെയ്യുക", "action": "ഉണങ്ങിയ സമയത്ത് മാത്രം രോഗമുള്ള ഇലകൾ പറിച്ചു നശിപ്പിക്കുക." },
+          { "step": 2, "title": "നനവ് നിയന്ത്രിക്കുക", "action": "ഇലകളിൽ വെള്ളം തളിക്കാതെ തടത്തിൽ മാത്രം നനയ്ക്കുക." },
+          { "step": 3, "title": "ബാക്ടീരിസൈഡ് പ്രയോഗം", "action": "കോപ്പർ കുമിൾനാശിനി ശുപാർശ ചെയ്ത അളവിൽ തളിക്കുക." }
+        ]
+      }
+    }
+  },
+  "corn_common_rust": {
+    "id": "corn_common_rust",
+    "plant": "Corn / Maize",
+    "crop_category": "Grains & Cereals",
+    "plant_scientific": "Zea mays",
+    "disease": "Common Rust",
+    "pathogen": "Puccinia sorghi (Fungus)",
+    "description": "Elongated golden-brown to cinnamon-brown powdery pustules (uredinia) erupting on both upper and lower corn leaf surfaces, rupturing the epidermis.",
+    "default_severity": "Moderate",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Early Scouting & Field Sanitation",
+        "action": "Monitor whorl-stage sweetcorn or grain maize closely. Rogue severely rusted lower leaves in smallholder garden plots.",
+        "icon": "scissors"
+      },
+      {
+        "step": 2,
+        "title": "Crop Residue Tillage & Spacing",
+        "action": "Ensure wide row spacing (75-80cm) to allow morning wind dispersal of dew. Deep plow maize stubble post-harvest.",
+        "icon": "wind"
+      },
+      {
+        "step": 3,
+        "title": "Foliar Triazole / Strobilurin Fungicide",
+        "action": "If pustules appear prior to silking, apply Azoxystrobin + Difenoconazole or Propiconazole @ 1ml/L of water.",
+        "safety_note": "Adhere to the 14-day pre-harvest waiting interval for sweet corn consumption. Wear PPE.",
+        "local_guidance": "Opt for Rp-gene resistant maize varieties recommended by your state agricultural university.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "മക്കച്ചോളത്തിലെ തുരുമ്പ് രോഗം (Common Rust)",
+        "plant": "മക്കച്ചോളം",
+        "treatment_steps": [
+          { "step": 1, "title": "രോഗം നിരീക്ഷിക്കുക", "action": "തുരുമ്പ് പാടുകളുള്ള ഇലകൾ നേരത്തെ കണ്ടെത്തി നശിപ്പിക്കുക." },
+          { "step": 2, "title": "അകലം പാലിക്കുക", "action": "ചെടികൾക്കിടയിൽ നല്ല വായുസഞ്ചാരവും അകലവും നൽകുക." },
+          { "step": 3, "title": "ഫംഗിസൈഡ് തളിക്കുക", "action": "ശുപാർശ ചെയ്ത കുമിൾനാശിനി പൂവിടുന്നതിന് മുൻപ് സ്പ്രേ ചെയ്യുക." }
+        ]
+      }
+    }
+  },
+  "apple_scab": {
+    "id": "apple_scab",
+    "plant": "Apple",
+    "crop_category": "Fruits & Orchards",
+    "plant_scientific": "Malus domestica",
+    "disease": "Apple Scab",
+    "pathogen": "Venturia inaequalis (Fungus)",
+    "description": "Olive-green, velvety circular spots with feathery radiating borders appearing on apple leaves, turning dark brownish-black and corky as foliage puckers and distorts.",
+    "default_severity": "Moderate",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Autumn Leaf Litter Cleanup & Composting",
+        "action": "Rake and thoroughly remove fallen orchard leaves in autumn (where fungal pseudothecia overwinter) or mow them with urea (5%) to speed decomposition.",
+        "icon": "scissors"
+      },
+      {
+        "step": 2,
+        "title": "Canopy Pruning for Sunlight Penetration",
+        "action": "Open center tree canopy through strategic dormant pruning to maximize sunlight penetration and reduce leaf wetness duration below 9 hours.",
+        "icon": "sun"
+      },
+      {
+        "step": 3,
+        "title": "Seasonal Protective Spray Schedule",
+        "action": "Apply Captan or Lime Sulfur during green tip to pink bud stage, followed by Difenoconazole or Kresoxim-methyl during petal fall.",
+        "safety_note": "Do not spray in windy conditions or during bee pollination hours. Wear full protective coveralls.",
+        "local_guidance": "Consult regional horticulture department scab-warning advisory stations.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "ആപ്പിൾ സ്കാബ് രോഗം (Apple Scab)",
+        "plant": "ആപ്പിൾ",
+        "treatment_steps": [
+          { "step": 1, "title": "കൊഴിഞ്ഞ ഇലകൾ നീക്കം ചെയ്യുക", "action": "മണ്ണിൽ വീണ ഇലകൾ ശേഖരിച്ചു നശിപ്പിക്കുക." },
+          { "step": 2, "title": "കൊമ്പുകൾ കോതി കൊടുക്കുക", "action": "മരത്തിനുള്ളിലേക്ക് നല്ല വെളിച്ചവും കാറ്റും കിട്ടാൻ കമ്പുകൾ കോതുക." },
+          { "step": 3, "title": "കുമിൾനാശിനി തളിക്കുക", "action": "തളിരിലകൾ വരുമ്പോൾ മുതൽ നിർദ്ദേശിക്കപ്പെട്ട കുമിൾനാശിനി തളിക്കുക." }
+        ]
+      }
+    }
+  },
+  "grape_black_rot": {
+    "id": "grape_black_rot",
+    "plant": "Grape / Grapevine",
+    "crop_category": "Fruits & Orchards",
+    "plant_scientific": "Vitis vinifera",
+    "disease": "Grape Black Rot",
+    "pathogen": "Guignardia bidwellii (Fungus)",
+    "description": "Small circular reddish-tan spots with distinct dark brown margins on grape leaves, containing tiny black fruiting pycnidia specks arranged in rings inside the lesions.",
+    "default_severity": "Moderate",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Mummified Berry & Shoot Pruning",
+        "action": "Prune out all old mummified grape clusters and diseased shoots during winter dormancy; burn or bury them deeply.",
+        "icon": "scissors"
+      },
+      {
+        "step": 2,
+        "title": "Trellis Training & Canopy Airflow",
+        "action": "Train grapevines onto vertical shoot positioning (VSP) trellises and remove lateral leaves around fruit clusters to keep foliage dry.",
+        "icon": "wind"
+      },
+      {
+        "step": 3,
+        "title": "Pre-Bloom & Post-Bloom Fungicide",
+        "action": "Spray Mancozeb or Myclobutanil starting when new shoots are 8-15cm long, repeating through post-bloom cluster development.",
+        "safety_note": "Wear chemical-proof gloves and face shield. Maintain recommended re-entry intervals (REI).",
+        "local_guidance": "Confirm with your local viticulture and grape growers association.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "മുന്തിരിയിലെ ബ്ലാക്ക് റോട്ട് രോഗം (Black Rot)",
+        "plant": "മുന്തിരി",
+        "treatment_steps": [
+          { "step": 1, "title": "ഉണങ്ങിയ ഭാഗങ്ങൾ വെട്ടിമാറ്റുക", "action": "രോഗം ബാധിച്ച ശിഖരങ്ങളും ഉണങ്ങിയ പഴങ്ങളും മുറിച്ചു നശിപ്പിക്കുക." },
+          { "step": 2, "title": "നല്ല പന്തൽ ഒരുക്കുക", "action": "വള്ളികൾ നന്നായി പടർത്തി വായുസഞ്ചാരം കൂട്ടുക." },
+          { "step": 3, "title": "മരുന്ന് തളിക്കുക", "action": "തളിർപ്പ് വരുമ്പോൾ മാങ്കോസെബ് അല്ലെങ്കിൽ ശുപാർശ ചെയ്ത മരുന്ന് തളിക്കുക." }
+        ]
+      }
+    }
+  },
+  "rice_bacterial_leaf_blight": {
+    "id": "rice_bacterial_leaf_blight",
+    "plant": "Rice / Paddy",
+    "crop_category": "Grains & Cereals",
+    "plant_scientific": "Oryza sativa",
+    "disease": "Bacterial Leaf Blight (BLB)",
+    "pathogen": "Xanthomonas oryzae pv. oryzae (Bacteria)",
+    "description": "Water-soaked yellow-to-straw-colored wavy stripes developing along leaf margins and tips, rapidly causing leaf withering, rolling, and bleaching.",
+    "default_severity": "Severe",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Field Drainage & Excess Water Evacuation",
+        "action": "Drain waterlogged paddy fields immediately for 3-4 days to arrest bacterial multiplication and systemic root uptake.",
+        "icon": "droplet"
+      },
+      {
+        "step": 2,
+        "title": "Nitrogen Suspension & Potassium Boosting",
+        "action": "Immediately stop top-dressing urea/nitrogen fertilizer (excess N drastically increases BLB). Apply Muriate of Potash (MOP) to toughen silica cell walls.",
+        "icon": "shield"
+      },
+      {
+        "step": 3,
+        "title": "Bactericide & Streptomycin Application",
+        "action": "Spray Streptocycline (1g / 10L water) mixed with Copper Oxychloride (25g / 10L) early morning in wind-calm weather.",
+        "safety_note": "Wear protective respirator and gloves. Avoid contact with skin during application.",
+        "local_guidance": "Consult your local Krishi Bhavan for regional paddy bacterial disease advisories and seed treatment protocols.",
+        "icon": "shield-check"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "നെല്ലിലെ ബാക്ടീരിയൽ ഇലകരിച്ചിൽ (Bacterial Leaf Blight)",
+        "plant": "നെല്ല്",
+        "treatment_steps": [
+          { "step": 1, "title": "വയലിലെ വെള്ളം വാർത്തു കളയുക", "action": "രോഗം പടരാതിരിക്കാൻ പാടത്തെ വെള്ളം 3-4 ദിവസത്തേക്ക് വാർത്തു കളയുക." },
+          { "step": 2, "title": "യൂറിയ ഒഴിവാക്കുക, പൊട്ടാഷ് നൽകുക", "action": "യൂറിയ പ്രയോഗം ഉടൻ നിർത്തുക. പൊട്ടാഷ് വളം നൽകി രോഗപ്രതിരോധശേഷി കൂട്ടുക." },
+          { "step": 3, "title": "സ്ട്രെപ്റ്റോസൈക്ലിൻ തളിക്കുക", "action": "സ്ട്രെപ്റ്റോസൈക്ലിനും കോപ്പർ ഓക്സിക്ലോറൈഡും ചേർത്ത് രാവിലെ സ്പ്രേ ചെയ്യുക." }
+        ]
+      }
+    }
+  },
+  "generic_healthy_leaf": {
+    "id": "generic_healthy_leaf",
+    "plant": "General Crop / Plant",
+    "crop_category": "All Crops",
+    "plant_scientific": "Plantae (Optimal Vigor)",
+    "disease": "Healthy Foliage",
+    "pathogen": "None (Crop exhibits optimal physiological health)",
+    "description": "Vibrant, uniform green chlorophyll distribution with intact vascular venation, sturdy cell wall turgor, and no visible fungal lesions, chlorotic spots, or bacterial streaks detected.",
+    "default_severity": "Healthy",
+    "treatment_steps": [
+      {
+        "step": 1,
+        "title": "Regular Scouting & Tool Sanitation",
+        "action": "Continue routine weekly foliar inspections. Sanitize shears and pruning clippers between rows.",
+        "icon": "check-circle"
+      },
+      {
+        "step": 2,
+        "title": "Balanced Nutrition & Soil Organic Matter",
+        "action": "Maintain soil micronutrient balance (zinc, iron, magnesium) and apply vermicompost to bolster natural soil microbiology.",
+        "icon": "feather"
+      },
+      {
+        "step": 3,
+        "title": "Prophylactic Organic Foliar Spray",
+        "action": "Apply cold-pressed neem seed kernel extract (NSKE 5%) or Panchagavya spray as an eco-friendly immune booster.",
+        "safety_note": "Apply organic foliar feeds in the late afternoon to prevent leaf scorch in hot sun.",
+        "local_guidance": "Share scouting progress with your local farming club or Krishi Bhavan.",
+        "icon": "award"
+      }
+    ],
+    "translations": {
+      "ml": {
+        "disease": "ആരോഗ്യമുള്ള ഇല (Healthy Leaf)",
+        "plant": "വിവിധ വിളകൾ",
+        "treatment_steps": [
+          { "step": 1, "title": "തുടർ നിരീക്ഷണം", "action": "ആഴ്ചയിൽ ഒരിക്കൽ ഇലകൾ പരിശോധിച്ച് വൃത്തിയായി സൂക്ഷിക്കുക." },
+          { "step": 2, "title": "ജൈവവള പ്രയോഗം", "action": "മണ്ണിന്റെ ഫലഭൂയിഷ്ഠത നിലനിർത്താൻ ചാണകപ്പൊടിയോ കമ്പോസ്റ്റോ നൽകുക." },
+          { "step": 3, "title": "പ്രതിരോധ പരിചരണം", "action": "വേപ്പെണ്ണ അല്ലെങ്കിൽ ജീവാമൃതം തളിച്ച് രോഗപ്രതിരോധശേഷി ഉറപ്പാക്കുക." }
+        ]
+      }
+    }
+  }
+}

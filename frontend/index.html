@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PlantGuard AI - Crop Disease Detection</title>
+  
+  <!-- PWA Meta -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#1B7F3B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="AI-based crop foliar disease scanner with real-time camera HUD, Grad-CAM spot localization, and agronomic treatment guide.">
+
+  <!-- Typography: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- App Container (Mobile-first 480px) -->
+  <div class="app-shell" id="appShell">
+    
+    <!-- Top Header Bar -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24" fill="none" class="shield-svg" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#1B7F3B"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7c-2.5 0-4 1.8-4 4 0 3 4 5 4 5s4-2 4-5c0-2.2-1.5-4-4-4z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-name" data-i18n="app_title">PlantGuard AI</h1>
+          <span class="brand-tagline" data-i18n="tagline">Detect Early. Grow Healthier.</span>
+        </div>
+      </div>
+      <button class="lang-pill-btn" id="langToggleBtn" title="Switch Language">മലയാളം</button>
+    </header>
+
+    <!-- Main Screens Viewport -->
+    <main class="screens-viewport">
+      
+      <!-- SCREEN 1: HOME -->
+      <section class="screen-view active" id="homeScreen">
+        <div class="home-hero">
+          <div class="hero-graphic">
+            <div class="scan-radar-ring"></div>
+            <div class="hero-leaf-icon">🌿</div>
+          </div>
+          <h2 class="hero-title" data-i18n="tagline">Detect Early. Grow Healthier.</h2>
+          <p class="hero-desc">Instant real-time crop disease identification, severity scoring, and certified agritech treatment workflows.</p>
+          
+          <div class="hero-cta-group">
+            <button class="btn-primary hero-btn" id="scanLeafBtn">
+              <span class="btn-icon">📷</span>
+              <span data-i18n="scan_leaf_cta">Scan Leaf</span>
+              <span class="pulse-ring"></span>
+            </button>
+            
+            <button class="btn-secondary" id="uploadPhotoBtn">
+              <span class="btn-icon">📁</span>
+              <span data-i18n="upload_photo_cta">Upload Photo</span>
+            </button>
+            <input type="file" id="uploadPhotoInput" accept="image/*" style="display:none;">
+          </div>
+        </div>
+
+        <!-- Quick Sample Leaves Section (All Crops) -->
+        <div class="samples-container">
+          <div class="samples-header-row">
+            <h3 class="section-title" data-i18n="sample_leaves_title">Check Any Crop Leaf:</h3>
+            <span class="crop-badge-all">Universal Doctor</span>
+          </div>
+
+          <div class="samples-grid">
+            <div class="sample-leaf-chip" data-sample="/assets/samples/potato_early_blight.jpg">
+              <img src="/assets/samples/potato_early_blight.jpg" alt="Potato Early Blight" class="sample-thumb">
+              <div class="sample-info">
+                <div class="crop-category-tag">Tubers</div>
+                <span class="sample-name">Potato Early Blight</span>
+                <span class="sample-sub">Solanum tuberosum</span>
+              </div>
+              <span class="badge-arrow">→</span>
+            </div>
+
+            <div class="sample-leaf-chip" data-sample="/assets/samples/pepper_bacterial_spot.jpg">
+              <img src="/assets/samples/pepper_bacterial_spot.jpg" alt="Pepper Bacterial Spot" class="sample-thumb">
+              <div class="sample-info">
+                <div class="crop-category-tag">Vegetables</div>
+                <span class="sample-name">Pepper Bacterial Spot</span>
+                <span class="sample-sub">Capsicum annuum</span>
+              </div>
+              <span class="badge-arrow">→</span>
+            </div>
+
+            <div class="sample-leaf-chip" data-sample="/assets/samples/corn_common_rust.jpg">
+              <img src="/assets/samples/corn_common_rust.jpg" alt="Corn Common Rust" class="sample-thumb">
+              <div class="sample-info">
+                <div class="crop-category-tag">Grains & Cereals</div>
+                <span class="sample-name">Corn / Maize Rust</span>
+                <span class="sample-sub">Zea mays</span>
+              </div>
+              <span class="badge-arrow">→</span>
+            </div>
+
+            <div class="sample-leaf-chip" data-sample="/assets/samples/apple_scab.jpg">
+              <img src="/assets/samples/apple_scab.jpg" alt="Apple Scab" class="sample-thumb">
+              <div class="sample-info">
+                <div class="crop-category-tag">Fruits & Orchards</div>
+                <span class="sample-name">Apple Scab</span>
+                <span class="sample-sub">Malus domestica</span>
+              </div>
+              <span class="badge-arrow">→</span>
+            </div>
+
+            <div class="sample-leaf-chip" data-sample="/assets/samples/grape_black_rot.jpg">
+              <img src="/assets/samples/grape_black_rot.jpg" alt="Grape Black Rot" class="sample-thumb">
+              <div class="sample-info">
+                <div class="crop-category-tag">Fruits & Orchards</div>
+                <span class="sample-name">Grape Black Rot</span>
+                <span class="sample-sub">Vitis vinifera</span>
+              </div>
+              <span class="badge-arrow">→</span>
+            </div>
+
+            <div class="sample-leaf-chip" data-sample="/assets/samples/healthy_crop_leaf.jpg">
+              <img src="/assets/samples/healthy_crop_leaf.jpg" alt="Healthy Crop Leaf" class="sample-thumb">
+              <div class="sample-info">
+                <div class="crop-category-tag healthy">All Crops</div>
+                <span class="sample-name">Healthy Foliage</span>
+                <span class="sample-sub">Optimal Physiological Vigor</span>
+              </div>
+              <span class="badge-arrow">✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quality Check Teasers -->
+        <div class="test-cards-row">
+          <button class="test-pill-btn" onclick="document.querySelector('[data-sample*=\'blurry\']')?.click() || document.getElementById('cameraScreen')">
+            <span>🔍 Blur & Low-Light Quality Gates Active</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: CAMERA HUD -->
+      <section class="screen-view" id="cameraScreen">
+        <div class="camera-viewport-wrap">
+          <video id="cameraVideo" playsinline autoplay muted></video>
+          <canvas id="cameraOverlay"></canvas>
+          <div class="shutter-flash-overlay" id="shutterFlash"></div>
+
+          <!-- Top Camera HUD Controls -->
+          <div class="camera-top-bar">
+            <button class="hud-circle-btn" id="backFromCameraBtn" title="Back to Home">✕</button>
+            <div class="hud-status-center">
+              <span class="status-pill live" id="cameraStateBadge" data-i18n="camera_active">CAMERA LIVE</span>
+            </div>
+            <div class="hud-top-actions">
+              <button class="hud-circle-btn" id="torchToggleBtn" title="Flashlight" style="display:none;">⚡</button>
+              <button class="hud-circle-btn" id="switchCameraBtn" title="Flip Camera">🔄</button>
+              <button class="hud-circle-btn" id="pauseCameraBtn" title="Pause Stream">⏸</button>
+              <button class="hud-circle-btn simulated-btn" id="testStreamBtn" title="Toggle Interactive Leaf Test Feed">🌱</button>
+            </div>
+          </div>
+
+          <!-- Quality Alert Banner -->
+          <div class="quality-alert-banner" id="qualityAlertBanner">
+            <span class="alert-icon">⚠️</span>
+            <span id="qualityAlertText" data-i18n="quality_blurry">Image too blurry / too dark, adjust and try again</span>
+          </div>
+
+          <!-- Leaf Framing Guide & Reticle -->
+          <div class="leaf-framing-guide">
+            <svg viewBox="0 0 300 360" class="leaf-reticle-svg">
+              <!-- Corner HUD brackets -->
+              <path d="M 20 60 L 20 20 L 60 20" stroke="#22C55E" stroke-width="3" fill="none"/>
+              <path d="M 240 20 L 280 20 L 280 60" stroke="#22C55E" stroke-width="3" fill="none"/>
+              <path d="M 20 300 L 20 340 L 60 340" stroke="#22C55E" stroke-width="3" fill="none"/>
+              <path d="M 240 340 L 280 340 L 280 300" stroke="#22C55E" stroke-width="3" fill="none"/>
+              
+              <!-- Subtle Leaf outline guide -->
+              <path d="M 150 40 C 220 80 260 160 240 250 C 220 310 180 330 150 350 C 120 330 80 310 60 250 C 40 160 80 80 150 40 Z" 
+                    stroke="rgba(255,255,255,0.4)" stroke-width="1.8" stroke-dasharray="6,4" fill="none" class="leaf-dashed-outline"/>
+              <line x1="150" y1="40" x2="150" y2="345" stroke="rgba(34, 197, 94, 0.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
+            </svg>
+
+            <div class="framing-tips-pill">
+              <span class="tip-dot"></span>
+              <span data-i18n="framing_tip">Fill the frame with one leaf</span>
+            </div>
+            <div class="sub-tip" data-i18n="steady_tip">Hold steady • Use natural light</div>
+          </div>
+
+          <!-- Laser Scan Line & Processing Animation -->
+          <div class="scanning-hud-overlay" id="scanningHudOverlay">
+            <div class="laser-scan-line"></div>
+            <div class="scanning-status-card">
+              <div class="spinner-radar"></div>
+              <span id="scanningStatusText" data-i18n="scanning_step_1">Scanning Leaf...</span>
+            </div>
+          </div>
+
+          <!-- Zoom Slider Control -->
+          <div class="camera-zoom-bar">
+            <span class="zoom-label">1x</span>
+            <input type="range" id="zoomSlider" min="1" max="3" step="0.1" value="1">
+            <span class="zoom-label">3x</span>
+          </div>
+
+          <!-- Bottom Camera HUD Controls -->
+          <div class="camera-bottom-bar">
+            <!-- Mode Switcher -->
+            <div class="scan-mode-tabs">
+              <button class="mode-tab active" id="liveModeTab" data-i18n="live_scan_mode">Live Scan</button>
+              <button class="mode-tab" id="captureModeTab" data-i18n="shutter_capture_mode">Capture</button>
+            </div>
+
+            <!-- Shutter Action Button -->
+            <div class="shutter-row">
+              <button class="btn-fallback-upload" id="uploadFallbackBtn" title="Upload Leaf Photo">
+                <span>📁</span>
+              </button>
+              <input type="file" id="cameraUploadInput" accept="image/*" style="display:none;">
+
+              <button class="shutter-button" id="shutterBtn" aria-label="Analyze Leaf">
+                <div class="shutter-inner"></div>
+              </button>
+
+              <button class="btn-fallback-upload" onclick="document.getElementById('testStreamBtn').click()" title="Test Stream">
+                <span>🌱</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: DIAGNOSTIC RESULT -->
+      <section class="screen-view" id="resultScreen">
+        <div class="result-scroll-container">
+          <!-- Frozen Leaf with Interactive Hotspot Markers -->
+          <div class="result-image-wrapper">
+            <canvas id="resultLeafCanvas"></canvas>
+            <div class="markers-layer" id="resultMarkersContainer"></div>
+            <div class="gradcam-badge">
+              <span>🎯 Grad-CAM AI Localization</span>
+            </div>
+          </div>
+
+          <!-- Primary Diagnosis Card -->
+          <div class="result-card main-card">
+            <div class="result-header-row">
+              <div class="plant-header">
+                <span class="plant-sub" id="resultPlantName">Tomato Crop</span>
+                <h2 class="disease-title" id="resultDiseaseName">Early Blight</h2>
+              </div>
+              <div class="confidence-gauge">
+                <svg viewBox="0 0 80 80" class="gauge-svg">
+                  <circle cx="40" cy="40" r="35" class="gauge-bg"/>
+                  <circle cx="40" cy="40" r="35" class="gauge-val" id="resultConfidenceRing"/>
+                </svg>
+                <div class="gauge-text" id="resultConfidenceValue">94%</div>
+              </div>
+            </div>
+
+            <div class="meta-pills-row">
+              <div class="meta-item">
+                <span class="meta-label" data-i18n="severity">Severity:</span>
+                <span class="severity-pill moderate" id="resultSeverityBadge">Moderate</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Lesions:</span>
+                <span class="lesion-count" id="resultSpotsSummary">4 spots identified</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Low Confidence Alert (<70%) -->
+          <div class="low-confidence-box" id="lowConfidenceAlert" style="display:none;">
+            <div class="alert-icon-wrap">⚠️</div>
+            <div class="alert-text-wrap">
+              <h4 data-i18n="uncertain_warning">Not sure, retake the photo</h4>
+              <p>Confidence score is below the 70% agronomic threshold. Please wipe camera lens, adjust lighting, and capture a tighter frame on a single leaf.</p>
+            </div>
+          </div>
+
+          <!-- 3-Step Treatment Guide -->
+          <div class="treatment-guide-card" id="treatmentGuideSection">
+            <h3 class="guide-title" data-i18n="treatment_guide_title">Actionable 3-Step Treatment Guide</h3>
+            
+            <!-- Step 1 -->
+            <div class="treatment-step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4 class="step-title" data-i18n="step_1_title">Step 1: Pruning & Sanitation</h4>
+                <p class="step-desc" id="treatmentStep1Action">Prune and safely dispose of all lower leaves exhibiting concentric spots. Do not compost.</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="treatment-step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4 class="step-title" data-i18n="step_2_title">Step 2: Airflow & Moisture Control</h4>
+                <p class="step-desc" id="treatmentStep2Action">Stake upright to lift foliage off soil. Water strictly at plant base using drip irrigation.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="treatment-step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4 class="step-title" data-i18n="step_3_title">Step 3: Qualified Local Recommendations</h4>
+                <p class="step-desc" id="treatmentStep3Action">Apply organic copper fungicide or Bacillus subtilis bioprotectant early in the morning.</p>
+                
+                <div class="safety-advisory-box">
+                  <span class="advisory-icon">🦺</span>
+                  <span class="advisory-text" id="treatmentSafetyAlert">Safety Note: Wear nitrile gloves, eye protection goggles, and respirator when spraying.</span>
+                </div>
+
+                <div class="regional-advisory-box">
+                  <span class="advisory-icon">🏛️</span>
+                  <span class="advisory-text" id="treatmentLocalAlert">Regional Advisory: Confirm chemical dosages with your local agriculture officer (Krishi Bhavan).</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Actions -->
+          <div class="result-action-bar">
+            <button class="btn-primary" id="saveScanBtn" data-i18n="save_scan_btn">Save Scan</button>
+            <button class="btn-secondary" id="retakeBtn" data-i18n="retake_btn">Retake Photo</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: HISTORY -->
+      <section class="screen-view" id="historyScreen">
+        <div class="tab-header">
+          <h2 class="tab-title" data-i18n="history_title">Scan History</h2>
+          <span class="tab-sub">Saved diagnostic records stored in SQLite</span>
+        </div>
+        <div class="history-list" id="historyListContainer">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- SCREEN 5: IOT FIELD DEVICES -->
+      <section class="screen-view" id="devicesScreen">
+        <div class="tab-header">
+          <h2 class="tab-title" data-i18n="devices_title">Field IoT Units</h2>
+          <span class="tab-sub" data-i18n="devices_desc">Autonomous field cameras posting real-time foliar telemetry.</span>
+        </div>
+        
+        <div class="devices-list" id="devicesListContainer">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Field Unit Ingest API Guide -->
+        <div class="iot-guide-card">
+          <h4 data-i18n="curl_guide_title">Field Unit Ingest API (cURL Example):</h4>
+          <pre class="code-box"><code>curl -X POST http://localhost:8000/api/device/ingest \
+  -F "file=@leaf.jpg" \
+  -F "device_id=esp32-greenhouse-01" \
+  -F "battery_pct=92"</code></pre>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-screen="home">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label" data-i18n="home">Home</span>
+      </button>
+      <button class="nav-item nav-camera-cta" data-screen="camera">
+        <div class="nav-camera-bubble">
+          <span class="nav-icon">📷</span>
+        </div>
+        <span class="nav-label" data-i18n="camera">Camera</span>
+      </button>
+      <button class="nav-item" data-screen="history">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label" data-i18n="history">History</span>
+      </button>
+      <button class="nav-item" data-screen="devices">
+        <span class="nav-icon">📡</span>
+        <span class="nav-label" data-i18n="devices">IoT Units</span>
+      </button>
+    </nav>
+
+    <!-- Permission Error Modal -->
+    <div class="modal-backdrop" id="permErrorModal">
+      <div class="modal-card">
+        <div class="modal-icon">📷❌</div>
+        <h3 class="modal-title" data-i18n="perm_denied_title">Camera Access Required</h3>
+        <p class="modal-body" data-i18n="perm_denied_body">To scan plant leaves, please allow camera permission in your browser settings, or upload a photo directly.</p>
+        <div class="perm-guide">
+          <strong>How to enable:</strong>
+          <ol>
+            <li>Tap the padlock or site settings icon in your browser address bar.</li>
+            <li>Set <em>Camera</em> to <strong>Allow</strong>.</li>
+            <li>Reload the page.</li>
+          </ol>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-primary" id="closePermModalBtn">Got it / Use Upload Instead</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/i18n.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/quality.js"></script>
+  <script src="/js/camera.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

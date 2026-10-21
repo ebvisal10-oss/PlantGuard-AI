@@ -1,0 +1,22 @@
+{
+  "name": "PlantGuard AI - Crop Disease Scanner",
+  "short_name": "PlantGuard",
+  "description": "AI-based plant disease detection with real-time camera HUD and treatment guide",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1b12",
+  "theme_color": "#1B7F3B",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
