@@ -275,6 +275,8 @@ if os.path.isdir(FRONTEND_DIR):
 
     @app.get("/{full_path:path}")
     def serve_frontend_files(full_path: str):
+        if full_path.startswith("api/") or full_path in ("docs", "redoc", "openapi.json"):
+            raise HTTPException(status_code=404, detail="Not Found")
         target_path = os.path.join(FRONTEND_DIR, full_path)
         if os.path.isfile(target_path):
             return FileResponse(target_path)

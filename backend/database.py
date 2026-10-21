@@ -4,15 +4,37 @@ import os
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "plantguard.db")
+import tempfile
 
-def get_connection():
+# In serverless environments like Vercel or AWS Lambda, the filesystem outside /tmp is read-only.
+if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+    DB_PATH = os.path.join(tempfile.gettempdir(), "plantguard.db")
+else:
+    DB_PATH = os.environ.get("SQLITE_PATH") or os.path.join(os.path.dirname(__file__), "plantguard.db")
+
+_db_initialized = False
+
+def _raw_connection():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
+def get_connection():
+    global _db_initialized
+    conn = _raw_connection()
+    if not _db_initialized:
+        _db_initialized = True
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='scans'")
+            if not cursor.fetchone():
+                init_db()
+        except Exception:
+            pass
+    return conn
+
 def init_db():
-    conn = get_connection()
+    conn = _raw_connection()
     cursor = conn.cursor()
     
     # Scans table
